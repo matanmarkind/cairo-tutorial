@@ -1,0 +1,4 @@
+{
+    "empty_tile_locations": [0, 2, 1, 2, 1, 3, 2, 3, 3, 3],
+    "moved_tiles": [3, 7, 8, 12]
+}
