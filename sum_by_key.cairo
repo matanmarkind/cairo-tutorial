@@ -35,9 +35,13 @@ func build_dict(list : KeyValue*, size, dict : DictAccess*) -> (
     # This adds a constraint. If `dict.key` had no value we are free to fill this
     # constraint by setting it equal to `list.key`. Otherwise, the constraint is
     # only valid if `dict.key` is already equal to `list.key` (aka an assertion). 
+    assert dict.key = list.key  # list.key adds a deref op, so multiple ops.
     # `assert` means that this compiles to multiple lines of CAIRO (adding 
     # another line to the trace).
-    assert dict.key = list.key
+    # 
+    # This line doesn't need an assert because CAIRO has a single opcode for
+    # `deref + assign`. The line above though needs to dereference both dict and
+    # list, and there is no opcode for `deref + deref + assign`
     dict.prev_value = prev
     dict.new_value = sum
 
