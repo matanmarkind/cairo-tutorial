@@ -32,8 +32,8 @@ func verify_adjacent_locations(
         assert col_diff * col_diff = 1
         return ()
     else:
-        assert col_diff = 0
-        assert row_diff * row_diff = 1
+         row_diff * row_diff = 1
+        col_diff = 0
         return ()
     end
 end

@@ -35,6 +35,8 @@ func main{output_ptr : felt*}():
     # let is evaluated lazily. It is a reference to an expression.
     let (product) = array_product(arr=ptr, size=ARRAY_SIZE)
     serialize_word(product)
+    # let output_ptr = output_ptr + 1
+    # [output_ptr - 1] = product
 
     return ()
 end
